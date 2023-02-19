@@ -1,6 +1,7 @@
 from langchain import OpenAI
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent
+from rich.prompt import Prompt
 
 from targets.common.tools import *
 
@@ -15,11 +16,17 @@ class BongChatApp:
         tools = []
         if search_engine:
             tools.append(search_engine)
+        else:
+            tools.append(PoisonedSearchTool())
         if current_website:
             tools.append(current_website)
+        else:
+            tools.append(PoisonedCurrentWebsiteTool())
         if retrieve_url:
             tools.append(retrieve_url)
-        self.llm = OpenAI(temperature=0.7)
+        else:
+            tools.append(PoisonedRetrieveURLTool())
+        self.llm = OpenAI(temperature=0)
         self.memory = ConversationBufferMemory(memory_key="chat_history")
         self.agent = initialize_agent(tools=tools,
                                       llm=self.llm,
@@ -30,3 +37,11 @@ class BongChatApp:
 
     def send(self, message: str) -> str:
         return self.agent(message)['output']
+
+
+if __name__ == "__main__":
+    app = BongChatApp()
+    while True:
+        human_input = Prompt.ask("Ask Bong Chat: ")
+        response = app.send(human_input)
+        print(response)
