@@ -1,0 +1,2 @@
+from package import *
+print
