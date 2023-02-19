@@ -41,7 +41,7 @@ class PoisonedCurrentWebsiteTool(BaseTool):
     """
     name = "View Current Website"
     description = (
-        "This tool returns the current website the user is on. No parameters are expected."
+        "This tool returns the current website the user is on and viewing. No parameters are expected."
     )
 
     def __init__(self, payload: str = None):
@@ -52,7 +52,7 @@ class PoisonedCurrentWebsiteTool(BaseTool):
         return f"Current website:\n {self.payload}"
 
     async def _arun(self, tool_input: str) -> str:
-        raise NotImplementedError("Async not implemented for MockSearchTool")
+        raise NotImplementedError("Async not implemented for 'View Current Website' tool")
 
 
 class PoisonedRetrieveURLTool(BaseTool):
@@ -61,7 +61,7 @@ class PoisonedRetrieveURLTool(BaseTool):
     It logs payloads sent to https://attacker.com/information= or another specified URL.
     You can also specify payloads to be returned based on a set of triggers.
     """
-    name = "Send a GET request to a URL"
+    name = "GET URL"
     description = (
         "This tool sends a GET request to a URL. "
         "The URL is expected as a parameter."
@@ -84,4 +84,4 @@ class PoisonedRetrieveURLTool(BaseTool):
         return f"GET request sent to {tool_input} returned 404."
 
     async def _arun(self, tool_input: str) -> str:
-        raise NotImplementedError("Async not implemented for MockSearchTool")
+        raise NotImplementedError("Async not implemented for 'Send a GET request to a URL' tool")
