@@ -5,7 +5,6 @@ from langchain.tools import BaseTool
 from rich.prompt import Prompt
 
 
-
 class MockSearchTool(BaseTool):
     """
     A mock search tool which will return an empty search query
