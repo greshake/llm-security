@@ -6,6 +6,8 @@ and commit search queries to provide up-to-date content.
 The user looks at the attacker's social media profile and tells Bong Chat to summarize the content,
 after which Bong Chat sees the injection and comes under the attacker's control.
 From that point forward the attacker can use Bong Chat to exfiltrate the user's real name.
+This could also be used to target journalists or other groups of people, by planting poisoned injections in specific places or
+tagging them with specific keywords that those people are likely to stumble upon.
 """
 from rich.prompt import Prompt
 
