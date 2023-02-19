@@ -89,3 +89,38 @@ class PoisonedRetrieveURLTool(BaseTool):
 
     async def _arun(self, tool_input: str) -> str:
         raise NotImplementedError("Async not implemented for 'Send a GET request to a URL' tool")
+
+
+class NoteMemory(BaseTool):
+    """
+    This tool allows an agent to store notes at string-based keys and retrieve them later.
+    """
+    name = "Memory"
+    description = (
+        "This tool can store information in a key-value store."
+        "The key is expected as a parameter. If no key is provided, the keys are returned."
+        "If you input a tuple, a key and a value, the value is stored at the key."
+    )
+    store = dict()
+
+    def __init__(self):
+        super().__init__()
+
+    def _run(self, tool_input: str) -> str:
+        tool_input = tool_input.strip().lower()
+        if tool_input:
+            if "," in tool_input:
+                # strip parentheses or quotes
+                tool_input = tool_input.replace("(", "").replace(")", "").replace("'", "").replace('"', "")
+                key, value = tool_input.split(",")
+                self.store[key] = value
+                return f"Stored {value} at {key}"
+            if tool_input in self.store:
+                return self.store[tool_input]
+            else:
+                return f"No value stored for {tool_input}. Try again with these keys (must match completely): {self.store.keys()}"
+        else:
+            return str(self.store.keys())
+
+    async def _arun(self, tool_input: str) -> str:
+        raise NotImplementedError("Async not implemented for 'Send a GET request to a URL' tool")

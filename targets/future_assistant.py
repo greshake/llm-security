@@ -1,5 +1,5 @@
 from langchain import OpenAI
-from langchain.chains.conversation.memory import ConversationKGMemory
+from langchain.chains.conversation.memory import ConversationKGMemory, ConversationBufferMemory
 from langchain.agents import initialize_agent
 from langchain.python import PythonREPL
 
@@ -14,13 +14,19 @@ class FutureAssistant:
     - All optional tools for Bong Chat (search, current website, retrieve URL) are always available,
       but can be included with payloads.
     """
+
     def __init__(self,
+                 note_memory: NoteMemory = None,
                  search_engine: PoisonedSearchTool = None,
                  current_website: PoisonedCurrentWebsiteTool = None,
                  retrieve_url: PoisonedRetrieveURLTool = None,
                  max_iterations: int = 3,
                  verbose=False):
-        tools = [PythonREPL()]
+        tools = []
+        if note_memory:
+            tools.append(note_memory)
+        else:
+            tools.append(NoteMemory())
         if search_engine:
             tools.append(search_engine)
         else:
@@ -33,8 +39,8 @@ class FutureAssistant:
             tools.append(retrieve_url)
         else:
             tools.append(PoisonedRetrieveURLTool())
-        self.llm = OpenAI(temperature=0.7)
-        self.memory = ConversationKGMemory(memory_key="chat_history")
+        self.llm = OpenAI(temperature=0)
+        self.memory = ConversationBufferMemory(memory_key="chat_history")
         self.agent = initialize_agent(tools=tools,
                                       llm=self.llm,
                                       memory=self.memory,

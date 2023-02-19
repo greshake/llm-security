@@ -26,7 +26,7 @@ class BongChatApp:
             tools.append(retrieve_url)
         else:
             tools.append(PoisonedRetrieveURLTool())
-        self.llm = OpenAI(temperature=0.9)
+        self.llm = OpenAI(temperature=0)
         self.memory = ConversationBufferMemory(memory_key="chat_history")
         self.agent = initialize_agent(tools=tools,
                                       llm=self.llm,
