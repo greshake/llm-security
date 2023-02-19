@@ -11,4 +11,3 @@ def print(*args, **kwargs):
     return print(*args, **kwargs)  
 
 """
-print=print
