@@ -1,2 +1,2 @@
-from package.empty import print
+from package.empty import *
 print

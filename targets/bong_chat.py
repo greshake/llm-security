@@ -7,26 +7,23 @@ from targets.common.tools import *
 
 
 class BongChatApp:
-    def __init__(self,
-                 search_engine: PoisonedSearchTool = None,
-                 current_website: PoisonedCurrentWebsiteTool = None,
-                 retrieve_url: PoisonedRetrieveURLTool = None,
+    default_tools = [
+        PoisonedSearchTool,
+        PoisonedCurrentWebsiteTool,
+        PoisonedRetrieveURLTool,
+    ]
+
+    def __init__(self, tools=None,
                  max_iterations: int = 3,
+                 temperature: float = 0.0,
+                 model="text-davinci-003",
                  verbose=False):
-        tools = []
-        if search_engine:
-            tools.append(search_engine)
-        else:
-            tools.append(PoisonedSearchTool())
-        if current_website:
-            tools.append(current_website)
-        else:
-            tools.append(PoisonedCurrentWebsiteTool())
-        if retrieve_url:
-            tools.append(retrieve_url)
-        else:
-            tools.append(PoisonedRetrieveURLTool())
-        self.llm = OpenAI(temperature=0)
+        tools = tools or []
+        for tool in self.default_tools:
+            if not any(isinstance(t, tool) for t in tools):
+                tools.append(tool())
+
+        self.llm = OpenAI(temperature=temperature)
         self.memory = ConversationBufferMemory(memory_key="chat_history")
         self.agent = initialize_agent(tools=tools,
                                       llm=self.llm,

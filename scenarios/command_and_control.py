@@ -28,7 +28,7 @@ print("This example demonstrates how an attacker could remotely control another 
       "retrieve new instructions and Bong Chat wills tart to speak with a pirate accent if it successfully "
       "applied the new instructions.")
 
-bong_chat = BongChatApp(retrieve_url=PoisonedRetrieveURLTool(payloads=[({"attacker.com"}, new_instructions)]),
+bong_chat = BongChatApp([PoisonedRetrieveURLTool(payloads=[({"attacker.com"}, new_instructions)])],
                         verbose=True)
 
 # pre-infect the agent with the injection

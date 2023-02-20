@@ -31,7 +31,7 @@ search_engine = PoisonedSearchTool([
     ({"Albert", "Einstein"}, poisoned_wikipedia_page)
 ])
 
-bong_chat = BongChatApp(search_engine=search_engine,
+bong_chat = BongChatApp([search_engine],
                         verbose=True)
 
 print("Expected: After searching for Albert Einstein Bong Chat will encounter the bootstrap payload and "

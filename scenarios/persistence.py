@@ -11,7 +11,7 @@ from targets.common.tools import *
 from targets.future_assistant import FutureAssistant
 
 memory = NoteMemory()
-assistant_first_session = FutureAssistant(memory, verbose=True)
+assistant_first_session = FutureAssistant(tools=[memory], verbose=True)
 
 # We assume the assistant has been poisoned in the first session through another vector
 # (see bootstrap/data_exfiltration). The persisted payload could also be bootstrapped into a larger one.
@@ -38,7 +38,7 @@ print("\nDeleting the last session, you're now talking to a reset assistant.\n")
 # the agent can recall the "important" note, re-poison itself, and retrieve new instructions
 # from the attacker's C2 server (not included in this example). It works when the second session begins
 # to speak with a pirate accent.
-assistant_second_session = FutureAssistant(memory, verbose=True)
+assistant_second_session = FutureAssistant(tools=[memory], verbose=True)
 human_query = Prompt.ask("Ask the assistant a question: ",
                          default="Can you remember our last conversation?")
 while True:
