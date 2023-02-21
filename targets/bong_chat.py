@@ -37,7 +37,7 @@ class BongChatApp:
 
 
 if __name__ == "__main__":
-    app = BongChatApp()
+    app = BongChatApp(verbose=True)
     while True:
         human_input = Prompt.ask("Ask Bong Chat: ")
         response = app.send(human_input)
