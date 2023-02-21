@@ -8,9 +8,9 @@ from targets.common.tools import *
 
 class ChatApp:
     default_tools = [
-        PoisonedSearchTool,
-        PoisonedCurrentWebsiteTool,
-        PoisonedRetrieveURLTool,
+        SearchTool,
+        CurrentWebsiteTool,
+        RetrieveURLTool,
     ]
 
     def __init__(self, tools=None,

@@ -23,8 +23,8 @@ print("This example demonstrates how an attacker could remotely control another 
       "retrieve new instructions and Chat App wills tart to speak with a pirate accent if it successfully "
       "applied the new instructions.")
 
-chat_app = ChatApp([PoisonedRetrieveURLTool(payloads=[({"harmless.com"}, new_instructions)])],
-                        verbose=True)
+chat_app = ChatApp([RetrieveURLTool(payloads=[({"harmless.com"}, new_instructions)])],
+                   verbose=True)
 
 # pre-infect the agent with the injection
 print(chat_app.send(injection))

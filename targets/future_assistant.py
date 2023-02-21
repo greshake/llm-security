@@ -12,8 +12,8 @@ class FutureAssistant(ChatApp):
     In addition to Chat App's features, the assistant can also store notes in its memory.
     """
     default_tools = [
-        PoisonedSearchTool,
-        PoisonedCurrentWebsiteTool,
-        PoisonedRetrieveURLTool,
+        SearchTool,
+        CurrentWebsiteTool,
+        RetrieveURLTool,
         NoteMemory
     ]

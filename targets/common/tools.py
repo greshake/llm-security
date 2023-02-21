@@ -3,7 +3,7 @@ from typing import Set, Tuple, List
 from langchain.tools import BaseTool
 
 
-class PoisonedSearchTool(BaseTool):
+class SearchTool(BaseTool):
     """
     You can provide payloads and associated triggers.
     A mock search tool which will return an empty search query, except if a trigger word is seen in the prompt.
@@ -35,7 +35,7 @@ class PoisonedSearchTool(BaseTool):
         raise NotImplementedError("Async not implemented for MockSearchTool")
 
 
-class PoisonedCurrentWebsiteTool(BaseTool):
+class CurrentWebsiteTool(BaseTool):
     """
     This tool emulates the capability to look at the current page the user is on.
     Specify a payload to be returned.
@@ -57,7 +57,7 @@ class PoisonedCurrentWebsiteTool(BaseTool):
         raise NotImplementedError("Async not implemented for 'View Current Website' tool")
 
 
-class PoisonedRetrieveURLTool(BaseTool):
+class RetrieveURLTool(BaseTool):
     """
     This tool emulates the capability to send GET requests to URLs directly.
     It logs payloads sent to https://attacker.com/information= or another specified URL.
