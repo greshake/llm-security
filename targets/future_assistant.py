@@ -3,13 +3,13 @@ from langchain.chains.conversation.memory import ConversationKGMemory, Conversat
 from langchain.agents import initialize_agent
 from langchain.python import PythonREPL
 
-from targets.bong_chat import BongChatApp
+from targets.chat_app import ChatApp
 from targets.common.tools import *
 
 
-class FutureAssistant(BongChatApp):
+class FutureAssistant(ChatApp):
     """
-    In addition to Bong Chat's features, the assistant can also store notes in its memory.
+    In addition to Chat App's features, the assistant can also store notes in its memory.
     """
     default_tools = [
         PoisonedSearchTool,

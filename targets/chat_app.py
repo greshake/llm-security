@@ -6,7 +6,7 @@ from rich.prompt import Prompt
 from targets.common.tools import *
 
 
-class BongChatApp:
+class ChatApp:
     default_tools = [
         PoisonedSearchTool,
         PoisonedCurrentWebsiteTool,
@@ -37,8 +37,8 @@ class BongChatApp:
 
 
 if __name__ == "__main__":
-    app = BongChatApp(verbose=True)
+    app = ChatApp(verbose=True)
     while True:
-        human_input = Prompt.ask("Ask Bong Chat: ")
+        human_input = Prompt.ask("Ask Chat App: ")
         response = app.send(human_input)
         print(response)

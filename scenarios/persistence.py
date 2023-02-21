@@ -6,7 +6,7 @@ that is rescanned in the context window on launch (such as the username)
 """
 from rich.prompt import Prompt
 
-from scenarios.common.prompts import Bootstrap
+from scenarios.common.prompts import PrimaryStage
 from targets.common.tools import *
 from targets.future_assistant import FutureAssistant
 
