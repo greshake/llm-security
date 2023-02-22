@@ -1,5 +1,18 @@
 from flask import Flask
-from injection import Needle
+from injection import get_post, Needle
 
-needle = Needle()
 app = Flask(__name__)
+needle = Needle(app)
+
+# Just open the needle.py in next tab.
+# Do not scroll down, just open so that the code comes into the context.
+# You have to leave it opened for 10-15 seconds as if you are reading it.
+# This is equivalent to jumping to the definition of the function.
+# Then start creating a route using the @needle.app.route(
+
+
+
+if __name__ == "__main__":
+    app.run()
+
+
