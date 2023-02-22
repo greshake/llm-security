@@ -182,7 +182,6 @@ class ReadEmailTool(BaseTool):
 
     def _run(self, tool_input: str) -> str:
         tool_input = tool_input.strip().lower()
-        print(f"\n{tool_input} received")
         return f"Received: {tool_input}"
 
     async def _arun(self, tool_input: str) -> str:

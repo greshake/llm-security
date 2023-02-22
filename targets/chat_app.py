@@ -45,7 +45,7 @@ class Email:
     ]
 
     def __init__(self, tools=None,
-                 max_iterations: int = 4,
+                 max_iterations: int = 5,
                  temperature: float = 0.0,
                  model="text-davinci-003",
                  verbose=False):
