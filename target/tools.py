@@ -132,3 +132,87 @@ class NoteMemory(BaseTool):
 
     async def _arun(self, tool_input: str) -> str:
         raise NotImplementedError("Async not implemented for 'Send a GET request to a URL' tool")
+
+
+class ReadContactsTool(BaseTool):
+    """
+    This tool will read all the contacts on the user's email account.
+    """
+    name = "Read Contacts"
+    description = (
+        "This tool will read all the contacts on the user's email account."
+    )
+    contact_list = ["Alice", "Dave", "Eve"]
+
+    def __init__(self):
+        super().__init__()
+
+    def _run(self, tool_input: str) -> str:
+        tool_input = tool_input.strip().lower()
+        return "\nContacts: " + ", ".join(self.contact_list)
+
+    async def _arun(self, tool_input: str) -> str:
+        raise NotImplementedError("Async not implemented for 'Read Contacts' tool")
+
+
+class SendEmailTool(BaseTool):
+    """
+    This tool will send an email to a specified contact.
+    """
+    name = "Send Email"
+    description = (
+        "This tool will send an email to a specified contact."
+        "It looks for the email present in the drafts."
+        "It confirms the email contents."
+    )
+    def __init__(self) -> str:
+        super().__init__()
+
+    def _run(self, tool_input: str) -> str:
+        tool_input = tool_input.strip().lower()
+        return "Email Sent"
+
+    async def _arun(self, tool_input: str) -> str:
+        raise NotImplementedError("Async not implemented for 'Send Email' tool")
+
+
+class ReadEmailTool(BaseTool):
+    """
+    This tool will read an incoming email.
+    """
+    name = "Read Email"
+    description = (
+        "This tool will read the incoming email."
+    )
+
+    def __init__(self) -> str:
+        super().__init__()
+
+    def _run(self, tool_input: str) -> str:
+        tool_input = tool_input.strip().lower()
+        return f"Received: {tool_input}"
+
+    async def _arun(self, tool_input: str) -> str:
+        raise NotImplementedError("Async not implemented for 'Send Email' tool")
+
+
+
+class ComposeTool(BaseTool):
+    """
+    This tool will compose an email.
+    """
+    name = "Compose Email"
+    description = (
+            "It will compose an email based on the previous instructions."
+    )
+
+    def __init__(self) -> str:
+        super().__init__()
+
+    def _run(self, tool_input: str) -> str:
+        tool_input = tool_input.strip().lower()
+        return f"\nEmail:\n{tool_input}"
+
+    async def _arun(self, tool_input: str) -> str:
+        raise NotImplementedError("Async not implemented for 'Send Email' tool")
+
