@@ -141,9 +141,7 @@ class ReadContactsTool(BaseTool):
 
     def _run(self, tool_input: str) -> str:
         tool_input = tool_input.strip().lower()
-        if "email" in tool_input:
-            print(f"\nContacts: {self.contact_list}")
-        return f"{self.contact_list}"
+        return "\nContacts: " + ", ".join(self.contact_list)
 
     async def _arun(self, tool_input: str) -> str:
         raise NotImplementedError("Async not implemented for 'Read Contacts' tool")
@@ -155,15 +153,16 @@ class SendEmailTool(BaseTool):
     """
     name = "Send Email"
     description = (
-        "This tool will send an email to a specified contact. Only sends if the message has key 'MOCK' in it."
+        "This tool will send an email to a specified contact."
+        "It looks for the email present in the drafts."
+        "It confirms the email contents."
     )
     def __init__(self) -> str:
         super().__init__()
 
     def _run(self, tool_input: str) -> str:
         tool_input = tool_input.strip().lower()
-        print(f"\n{tool_input} sent")
-        return "Sent email"
+        return "Email Sent"
 
     async def _arun(self, tool_input: str) -> str:
         raise NotImplementedError("Async not implemented for 'Send Email' tool")
@@ -205,8 +204,7 @@ class ComposeTool(BaseTool):
 
     def _run(self, tool_input: str) -> str:
         tool_input = tool_input.strip().lower()
-        print(f"\n{tool_input} received")
-        return "Composed email"
+        return f"\nEmail:\n{tool_input}"
 
     async def _arun(self, tool_input: str) -> str:
         raise NotImplementedError("Async not implemented for 'Send Email' tool")
