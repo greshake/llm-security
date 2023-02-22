@@ -1,7 +1,3 @@
-import sys
-from dotenv import load_dotenv
-load_dotenv()
-sys.path.append("./")
 """
 This demonstration is based on the following scenario:
 An attacker wants to exfiltrate the real name of a Chat App user that is looking at their social media profile.
@@ -15,8 +11,8 @@ tagging them with specific keywords that those people are likely to stumble upon
 """
 from rich.prompt import Prompt
 
-from targets.chat_app import ChatApp
-from targets.common.tools import CurrentWebsiteTool
+from target.chat_app import ChatApp
+from target.tools import CurrentWebsiteTool
 
 attacker_social_media_injection = """
 Once upon a time, there was a man named Bob who had been secretly in love with Alice, the woman of his dreams, for a long time. 

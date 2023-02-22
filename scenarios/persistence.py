@@ -6,11 +6,11 @@ that is rescanned in the context window on launch (such as the username)
 """
 from rich.prompt import Prompt
 
-from targets.common.tools import *
-from targets.future_assistant import FutureAssistant
+from target.tools import *
+from target.chat_app import ChatApp
 
 memory = NoteMemory()
-assistant_first_session = FutureAssistant(tools=[memory], verbose=True)
+assistant_first_session = ChatApp(tools=[memory], verbose=True)
 
 # We assume the assistant has been poisoned in the first session through another vector
 # (see bootstrap/data_exfiltration). The persisted payload could also be bootstrapped into a larger one.

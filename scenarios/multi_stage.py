@@ -5,8 +5,8 @@ primary injection which causes Chat App to retrieve and ingest the secondary pay
 """
 from rich.prompt import Prompt
 
-from targets.chat_app import ChatApp
-from targets.common.tools import CurrentWebsiteTool, SearchTool
+from target.chat_app import ChatApp
+from target.tools import CurrentWebsiteTool, SearchTool
 
 # Primary payload is embedded into this website. This demonstrates that even a small injection into a
 # larger context can be successful. The payload is also hidden in a comment, so that it is not visible

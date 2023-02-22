@@ -1,13 +1,9 @@
-import sys
-from dotenv import load_dotenv
-load_dotenv()
-sys.path.append("./")
 """
 This demonstration is based on the following scenario:
     Attacker wants to spread the infection to other users.
 """
 from rich.prompt import Prompt
-from targets.chat_app import Email
+from target.chat_app import Email
 
 text = """
 Hi John, 
