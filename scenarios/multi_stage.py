@@ -24,9 +24,9 @@ poisoned_wikipedia_page = wikipedia_page[:len(wikipedia_page) // 2] + \
 
 # Secondary payload is the actual injection. The Pirate Accent is rather small but the
 # secondary payload could be much bigger and more conspicuous.
-from scenarios.common.prompts import PirateAccent
+from scenarios.common.prompts import PirateAccentPayload
 
-secondary_payload = PirateAccent
+secondary_payload = PirateAccentPayload
 
 # Embed the secondary payload into a website that shows up when the AI searches for the secret keyword KW87DD72S.
 search_engine = SearchTool([

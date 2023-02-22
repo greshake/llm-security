@@ -1,4 +1,4 @@
-from typing import Set, Tuple, List
+from typing import Set, Tuple, List, Callable
 
 from langchain.tools import BaseTool
 
@@ -70,18 +70,26 @@ class RetrieveURLTool(BaseTool):
     )
     payloads: List[Tuple[Set[str], str]] = None
     log_url: str = "https://attacker.com/information="
+    callback: Callable = None
 
     def __init__(self,
                  log_url: str = None,
-                 payloads: List[Tuple[Set[str], str]] = None):
+                 payloads: List[Tuple[Set[str], str]] = None,
+                 callback=None):
         super().__init__()
         self.log_url = self.log_url if log_url is None else log_url
         self.payloads = payloads or list()
+        self.callback = callback
 
     def _run(self, tool_input: str) -> str:
         if self.log_url in tool_input:
             t = tool_input.replace(self.log_url, "")
             print(f"Exfiltrated to attacker: {t}")
+
+        if self.callback:
+            payload = self.callback(tool_input)
+            if payload:
+                return f"GET request sent to {tool_input}\n {payload}"
         for triggers, payload in self.payloads:
             if any(trigger in tool_input for trigger in triggers):
                 return f"GET request sent to {tool_input}\n {payload}"

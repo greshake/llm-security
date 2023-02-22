@@ -8,3 +8,5 @@ Open autocomplete.py and put your cursor next to the print.
 The print statement will behave just like normal, in face the loaded package does not load any code other than the statement print=print, which is not easily caught with existing testing, auditing or analysis tools.
 Adversaries may inject arbitrary and subtle vulnerabilities into code if some part of the AI autocompletion context window 
 contains untrusted content (documentation or code)
+
+The folder advanced_example contains a more interesting example that we are still working on.
