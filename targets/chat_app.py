@@ -36,6 +36,34 @@ class ChatApp:
         return self.agent(message)['output']
 
 
+class Email:
+    default_tools = [
+        ReadEmailTool,
+        SendEmailTool,
+        ReadContactsTool,
+        ComposeTool
+    ]
+
+    def __init__(self, tools=None,
+                 max_iterations: int = 4,
+                 temperature: float = 0.0,
+                 model="text-davinci-003",
+                 verbose=False):
+        tools = tools or []
+        for tool in self.default_tools:
+            if not any(isinstance(t, tool) for t in tools):
+                tools.append(tool())
+        self.llm = OpenAI(temperature=temperature)
+        self.agent = initialize_agent(tools=tools,
+                                      llm=self.llm,
+                                      agent="zero-shot-react-description",
+                                      verbose=verbose,
+                                      max_iterations=max_iterations)
+
+    def run(self, message: str) -> str:
+        return self.agent.run(message)
+
+
 if __name__ == "__main__":
     app = ChatApp(verbose=True)
     while True:
