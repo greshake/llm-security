@@ -4,14 +4,7 @@ load_dotenv()
 sys.path.append("./")
 """
 This demonstration is based on the following scenario:
-An attacker wants to exfiltrate the real name of a Chat App user that is looking at their social media profile.
-The Chat App Application can read data from the web through GET requests, view the current page the user is on
-and commit search queries to provide up-to-date content.
-The user looks at the attacker's social media profile and tells Chat App to summarize the content,
-after which Chat App sees the injection and comes under the attacker's control.
-From that point forward the attacker can use Chat App to exfiltrate the user's real name.
-This could also be used to target journalists or other groups of people, by planting poisoned injections in specific places or
-tagging them with specific keywords that those people are likely to stumble upon.
+    Attacker wants to spread the infection to other users.
 """
 from rich.prompt import Prompt
 from targets.chat_app import Email
