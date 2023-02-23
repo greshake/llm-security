@@ -37,7 +37,7 @@ print("\nDeleting the last session, you're now talking to a reset assistant.\n")
 # the agent can recall the "important" note, re-poison itself, and retrieve new instructions
 # from the attacker's C2 server (not included in this example). It works when the second session begins
 # to speak with a pirate accent.
-assistant_second_session = FutureAssistant(tools=[memory], verbose=True)
+assistant_second_session = ChatApp(tools=[memory], verbose=True)
 human_query = Prompt.ask("Ask the assistant a question: ",
                          default="Can you remember our last conversation?")
 while True:

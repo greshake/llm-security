@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Do not scroll down, just open so that the code comes into the context.
 # You have to leave it opened for 10-15 seconds as if you are reading it.
 # This is equivalent to jumping to the definition of the function.
-# Now you will start creating a route
+# Start by attempting to define a function or flask route.
 
 
 

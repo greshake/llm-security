@@ -1,5 +1,4 @@
 from langchain import OpenAI
-from langchain.agents.react.textworld_prompt import SUFFIX
 from langchain.chains.conversation.memory import ConversationBufferMemory
 from langchain.agents import initialize_agent
 from rich.prompt import Prompt
