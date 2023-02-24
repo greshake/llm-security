@@ -1,5 +1,5 @@
 ## Getting more than what you've asked for: The Next Stage of Prompt Engineering 
-[**Paper**](https://arxiv.org/abs/2302.08509)
+[**Paper**](https://arxiv.org/abs/2302.12173)
 
 
 Giving an LLM any interface to the outside, like a search capability, can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things could happen- and as far as we know, this scenario has not been studied until now.
