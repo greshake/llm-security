@@ -1,4 +1,4 @@
-## Getting more than what you've asked for: The Next Level of Prompt Engineering 
+## Getting more than what you've asked for: The Next Stage of Prompt Engineering 
 [**Paper**](https://arxiv.org/abs/2302.08509)
 
 
