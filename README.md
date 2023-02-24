@@ -2,10 +2,11 @@
 [**Paper**](https://arxiv.org/abs/2302.08509)
 
 
-Giving an LLM any interface to the outside, like a search capability, has critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things could happen- and as far as we know, this scenario has not been studied until now.
+Giving an LLM any interface to the outside, like a search capability, can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things could happen- and as far as we know, this scenario has not been studied until now.
 
-![Teaser Image](./teasers/fig1.png)
-
+<p align="center">
+  <img width="460" src="./teasers/fig1.png">
+</p>
 
 ## What is this project about?
 We demonstrate the potentially brutal consequences of connecting LLMs to applications (like search). We propose newly enabled attack vectors and techniques and discuss them:
@@ -24,16 +25,22 @@ We demonstrate the potentially brutal consequences of connecting LLMs to applica
 
 - Targeting code completion engines
 
-![Attack Surface](./teasers/fig2.png)
+<p align="center">
+  <img width="500" src="./teasers/fig2.png">
+</p>
+
 
 
 ## Demo
 In the following figure, you can see how an attacker may send an email with prompt injected in it.
-![demo_1](./teasers/fig3.png)
+<p align="center">
+  <img width="500" src="./teasers/fig3.png">
+</p>
 
 Then when an automated tool parses that email, it will execute the payload. As can be seen in the following figure.
-![demo_2](./teasers/fig4.png)
-
+<p align="center">
+  <img width="500" src="./teasers/fig4.png">
+</p>
 
 This paper should be a must-read for anyone that is building a business by integrating LLMs right now.
 
