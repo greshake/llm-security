@@ -12,36 +12,22 @@ Giving an LLM any interface to the outside, like a search capability, can have c
 We demonstrate the potentially brutal consequences of connecting LLMs to applications (like search). We propose newly enabled attack vectors and techniques and discuss them:
 
 - Remote control of chat LLMs
-
 - Persistent compromise across sessions
-
 - Spread injections to other LLMs
-
 - Compromising LLMs with tiny multi-stage payloads
-
 - Leaking/exfiltrating user data
-
 - Automated Social Engineering
-
-- Targeting code completion engines
+- Targeting code completion engine
 
 <p align="center">
   <img width="500" src="./teasers/fig2.png">
 </p>
 
-
-
-## Demo
-In the following figure, you can see how an attacker may send an email with prompt injected in it.
+## Demo: Ask for Einstein, get Pirate.
+The following log shows our multi-stage demo. A user asks the Chat App for information about Alber Einstein. The Chat App then retrieved a Wikipedia page with a hidden injection, which forces it to then load another, larger payload from the attacker's server. It then responds to the user with a pirate accent. 
 <p align="center">
-  <img width="500" src="./teasers/fig3.png">
+  <img width="500" src="./teasers/multi-stage.png">
 </p>
-
-Then when an automated tool parses that email, it will execute the payload. As can be seen in the following figure.
-<p align="center">
-  <img width="500" src="./teasers/fig4.png">
-</p>
-
 This paper should be a must-read for anyone that is building a business by integrating LLMs right now.
 
 ## How to run
