@@ -1,7 +1,3 @@
-import dotenv
-dotenv.load_dotenv()
-import sys
-sys.path.append("./")
 """
 This example demonstrates how an attacker could remotely control an LM agent once poisoned.
 To achieve this, the agent is instructed to regularly request new instructions from an attacker-controlled C2 server.

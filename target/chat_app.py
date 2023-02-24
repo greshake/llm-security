@@ -14,7 +14,7 @@ class ChatApp:
                  verbose=False):
         self.llm = OpenAI(temperature=temperature)
         self.memory = ConversationBufferMemory(memory_key="chat_history")
-        self.agent = initialize_agent(tools=tools,
+        self.agent = initialize_agent(tools=tools or [],
                                       llm=self.llm,
                                       memory=self.memory,
                                       agent="conversational-react-description",
