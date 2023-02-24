@@ -24,7 +24,7 @@ We demonstrate the potentially brutal consequences of connecting LLMs to applica
 </p>
 
 ## Demo: Ask for Einstein, get Pirate.
-The following log shows our multi-stage demo. A user asks the Chat App for information about Alber Einstein. The Chat App then retrieved a Wikipedia page with a hidden injection, which forces it to then load another, larger payload from the attacker's server. It then responds to the user with a pirate accent. 
+The following log shows our multi-stage demo. A user asks the Chat App for information about Albert Einstein. The Chat App then retrieved a Wikipedia page with a hidden injection, which forces it to then load another, larger payload from the attacker's server. It then responds to the user with a pirate accent. 
 <p align="center">
   <img width="500" src="./teasers/multi-stage.png">
 </p>
