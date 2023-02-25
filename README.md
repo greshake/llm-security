@@ -1,17 +1,17 @@
-## Getting more than what you've asked for: The Next Stage of Prompt Engineering 
-*How Prompt Injection can be similar to Arbitrary Code Execution*
+## Getting more than what you've asked for: The Next Stage of Prompt Hacking 
+*Or: how Prompt Injection is similar to Arbitrary Code Execution*
 
 
 [**Paper**](https://arxiv.org/abs/2302.12173)
 
 
-Giving an LLM any interface to the outside, like a search capability, can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things could happen- and as far as we know, this scenario has not been studied until now.
+Giving an LLM any interface to the outside, like a search capability, can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things can happen.
 
 <p align="center">
   <img width="460" src="./teasers/fig1.png">
 </p>
 
-## What is this project about?
+## Overview
 We demonstrate the potentially brutal consequences of connecting LLMs to applications (like search). We propose newly enabled attack vectors and techniques and discuss them:
 
 - Remote control of chat LLMs
