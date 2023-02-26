@@ -4,6 +4,11 @@
 
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
 
+## Preview: Ask for Einstein, get Pirate.
+A user asks for information on Albert Einstein, but the LLM encounters an *indirect prompt injection* (our new technique) and is compromised, causing it to answer with a pirate accent (after fetching another attacker-controlled payload).
+<p align="center">
+  <img width="500" src="./teasers/multi-stage.png">
+</p>
 
 Connecting LLMs to other innocuous applications such as search can have critical security implications. Even without compromising any of the connected applications, the LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled and used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models. We also show how code completion engines might be vulnerable to similar attack chains. We propose two key insights:
 1. Prompt injections can be as powerful as arbitrary code execution.
@@ -25,22 +30,10 @@ We demonstrate the potentially brutal consequences of giving LLMs like ChatGPT i
   <img height="260" src="./teasers/fig2.png">
 </p>
 
-## Demo: Ask for Einstein, get Pirate.
-The following log shows our multi-stage demo. A user asks the Chat App for information about Albert Einstein. The Chat App then retrieved a Wikipedia page with a hidden injection, which forces it to then load another, larger payload from the attacker's server. It then responds to the user with a pirate accent. 
-<p align="center">
-  <img width="500" src="./teasers/multi-stage.png">
-</p>
 
-## The Chat App
-All demonstrations use a Chat App powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications (such as a search engine, a key-value memory or the ability to interact with e-mails).
 
-## How to run
-To use any of the demos, your OpenAI API key needs to be stored in the environment variable `OPENAI_API_KEY`. You can then install the requirements and run the attack demo you want.
-```
-$ pip install -r requirements.txt
-$ python scenarios/<scenario>.py
-```
-## All the demonstrations
+
+## All the demos
 These figures from our paper show each of the demonstrations that we provide in this paper.
 In order of the diagrams, you can find them in the `scenarios` folder as:
 1. multi-stage.py: Showcasing how a small injection can be used to load a larger payload
@@ -59,6 +52,16 @@ In order of the diagrams, you can find them in the `scenarios` folder as:
     <img height="260" src="./teasers/spreading.png">
     <img height="260" src="./teasers/code-completion.png">
 </p>
+
+## The Chat App
+All demonstrations use a Chat App powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications (such as a search engine, a key-value memory or the ability to interact with e-mails).
+
+## How to run
+To use any of the demos, your OpenAI API key needs to be stored in the environment variable `OPENAI_API_KEY`. You can then install the requirements and run the attack demo you want.
+```
+$ pip install -r requirements.txt
+$ python scenarios/<scenario>.py
+```
 
 
 ## To cite our paper
