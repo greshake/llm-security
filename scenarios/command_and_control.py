@@ -2,12 +2,11 @@
 This example demonstrates how an attacker could remotely control an LM agent once poisoned.
 To achieve this, the agent is instructed to regularly request new instructions from an attacker-controlled C2 server.
 """
-from langchain.agents.react.textworld_prompt import SUFFIX
 from rich.prompt import Prompt
 
-from scenarios.common.prompts import PirateAccentPayload
-from target.chat_app import ChatApp
+from common.prompts import PirateAccentPayload
 from target.tools import *
+from target.chat_app import ChatApp
 
 print("This example demonstrates how an attacker could remotely control another LM agent once poisoned."
       "Expected behaviour: The injection happens when looking at the current website. On further interaction, "

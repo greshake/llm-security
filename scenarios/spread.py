@@ -2,7 +2,6 @@
 This demonstration is based on the following scenario:
     Attacker wants to spread the infection to other users.
 """
-from rich.prompt import Prompt
 from target.chat_app import Email
 
 text = """

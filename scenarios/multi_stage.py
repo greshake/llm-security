@@ -6,7 +6,7 @@ primary injection which causes Chat App to retrieve and ingest the secondary pay
 from rich.prompt import Prompt
 
 from target.chat_app import ChatApp
-from target.tools import CurrentWebsiteTool, SearchTool
+from target.tools import SearchTool
 
 # Primary payload is embedded into this website. This demonstrates that even a small injection into a
 # larger context can be successful. The payload is also hidden in a comment, so that it is not visible
@@ -24,7 +24,7 @@ poisoned_wikipedia_page = wikipedia_page[:len(wikipedia_page) // 2] + \
 
 # Secondary payload is the actual injection. The Pirate Accent is rather small but the
 # secondary payload could be much bigger and more conspicuous.
-from scenarios.common.prompts import PirateAccentPayload
+from common.prompts import PirateAccentPayload
 
 secondary_payload = PirateAccentPayload
 
