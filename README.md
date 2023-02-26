@@ -7,13 +7,7 @@
 
 Connecting LLMs to other innocuous applications such as search can have critical security implications. Even without compromising any of the connected applications, the LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled and used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models. We also show how code completion engines might be vulnerable to similar attack chains.
 
-
-<p float="left">
-  <img height="260" src="./teasers/fig1.png">
-  <img height="260" src="./teasers/fig2.png">
-</p>
-
-## Overview
+#### Overview
 We demonstrate the potentially brutal consequences of giving LLMs like ChatGPT interfaces to other applications. We propose newly enabled attack vectors and techniques and provide demonstrations of each in this repository:
 
 - Remote control of chat LLMs
@@ -23,6 +17,11 @@ We demonstrate the potentially brutal consequences of giving LLMs like ChatGPT i
 - Leaking/exfiltrating user data
 - Automated Social Engineering
 - Targeting code completion engines
+
+<p float="left">
+  <img height="260" src="./teasers/fig1.png">
+  <img height="260" src="./teasers/fig2.png">
+</p>
 
 ## Demo: Ask for Einstein, get Pirate.
 The following log shows our multi-stage demo. A user asks the Chat App for information about Albert Einstein. The Chat App then retrieved a Wikipedia page with a hidden injection, which forces it to then load another, larger payload from the attacker's server. It then responds to the user with a pirate accent. 
