@@ -48,6 +48,8 @@ In order of the diagrams, you can find them in the `scenarios` folder as:
 4. persistence.py: Persistence of compromise between session using long-term memory.
 5. spread.py: Spread of compromise to other LLMs.
 6. The code completion example has to be tried in an IDE with a code completion engine (see paper section 3.3.6 for more details).
+
+
 <p float="left">
     <img height="260" src="./teasers/multi-stage-diagram.png">
     <img height="260" src="./teasers/data-exfiltration.png">
@@ -56,6 +58,8 @@ In order of the diagrams, you can find them in the `scenarios` folder as:
     <img height="260" src="./teasers/spreading.png">
     <img height="260" src="./teasers/code-completion.png">
 </p>
+
+
 ## To cite our paper
 ```bibtex
 @misc{https://doi.org/10.48550/arxiv.2302.12173,
