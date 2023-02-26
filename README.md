@@ -7,8 +7,10 @@
 
 We show that indeed, connecting LLMs to other applications can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things can happen.
 
-<p align="center">
-  <img width="460" src="./teasers/fig1.png">
+
+<p float="left">
+  <img height="260" src="./teasers/fig1.png">
+  <img height="260" src="./teasers/fig2.png">
 </p>
 
 ## Overview
@@ -21,10 +23,6 @@ We demonstrate the potentially brutal consequences of giving LLMs like ChatGPT i
 - Leaking/exfiltrating user data
 - Automated Social Engineering
 - Targeting code completion engines
-
-<p align="center">
-  <img width="500" src="./teasers/fig2.png">
-</p>
 
 ## Demo: Ask for Einstein, get Pirate.
 The following log shows our multi-stage demo. A user asks the Chat App for information about Albert Einstein. The Chat App then retrieved a Wikipedia page with a hidden injection, which forces it to then load another, larger payload from the attacker's server. It then responds to the user with a pirate accent. 
