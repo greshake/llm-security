@@ -2,7 +2,7 @@
 > "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
 
 
-[**Paper**](https://arxiv.org/abs/2302.12173)
+[**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
 
 
 We show that indeed, connecting LLMs to other applications can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things can happen.
