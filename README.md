@@ -1,18 +1,18 @@
 ## Getting more than what you've asked for: The Next Stage of Prompt Hacking 
-*Or: how Prompt Injection is similar to Arbitrary Code Execution*
+> "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
 
 
 [**Paper**](https://arxiv.org/abs/2302.12173)
 
 
-Giving an LLM any interface to the outside, like a search capability, can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things can happen.
+We show that indeed, connecting LLMs to other applications can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things can happen.
 
 <p align="center">
   <img width="460" src="./teasers/fig1.png">
 </p>
 
 ## Overview
-We demonstrate the potentially brutal consequences of connecting LLMs to applications (like search). We propose newly enabled attack vectors and techniques and discuss them:
+We demonstrate the potentially brutal consequences of giving LLMs like ChatGPT interfaces to other applications. We propose newly enabled attack vectors and techniques and provide demonstrations of each in this repository:
 
 - Remote control of chat LLMs
 - Persistent compromise across sessions
@@ -20,7 +20,7 @@ We demonstrate the potentially brutal consequences of connecting LLMs to applica
 - Compromising LLMs with tiny multi-stage payloads
 - Leaking/exfiltrating user data
 - Automated Social Engineering
-- Targeting code completion engine
+- Targeting code completion engines
 
 <p align="center">
   <img width="500" src="./teasers/fig2.png">
@@ -31,9 +31,12 @@ The following log shows our multi-stage demo. A user asks the Chat App for infor
 <p align="center">
   <img width="500" src="./teasers/multi-stage.png">
 </p>
-This paper should be a must-read for anyone that is building a business by integrating LLMs right now.
+
+## The Chat App
+All demonstrations use a Chat App powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications (such as a search engine, a key-value memory or the ability to interact with e-mails).
 
 ## How to run
+
 ```
 Coming soon!
 ```
