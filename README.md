@@ -34,11 +34,11 @@ The following log shows our multi-stage demo. A user asks the Chat App for infor
 All demonstrations use a Chat App powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications (such as a search engine, a key-value memory or the ability to interact with e-mails).
 
 ## How to run
-
+To use any of the demos, your OpenAI API key needs to be stored in the environment variable `OPENAI_API_KEY`. You can then install the requirements and run the attack demo you want.
 ```
-Coming soon!
+$ pip install -r requirements.txt
+$ python scenarios/<scenario>.py
 ```
-However, if you are in hurry, you will need `langchain`, `openai` and `rich`. You will also need OpenAPI key. Finally, you can use PyCharm and run the attack you want.
 
 ## To cite our paper
 ```bibtex
