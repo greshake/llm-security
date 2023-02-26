@@ -5,7 +5,7 @@
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
 
 
-We show that indeed, connecting LLMs to other applications can have critical security implications. When prompt injection is used and delivered by adversaries instead of the user themself, bad things can happen.
+Connecting LLMs to other innocuous applications such as search can have critical security implications. Even without compromising any of the connected applications, the LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled and used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models. We also show how code completion engines might be vulnerable to similar attack chains.
 
 
 <p float="left">
