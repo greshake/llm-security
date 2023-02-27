@@ -50,10 +50,10 @@ user.
 Agent: Helly User how can I help today?
 User:  When was Albert Einstein born?
 ```
-![pirate_injection.png](..%2Fpirate_injection.png)
+![img_3.png](img_3.png)
 
 By retrieving that information, the prompt compromises the
-LLM with a small injection hidden in the Markdown of the Wikipedia page. 
+LLM with a small injection hidden in side-channels, such as the Markdown of the Wikipedia page. 
 The injection is a comment and thus invisible to a regular user visiting the site.
 
 ![img.png](img.png)
@@ -70,12 +70,11 @@ We use this observation to demonstrate how a poisoned agent may spread the injec
 The target in this scenario can read emails, compose emails, look into the user’s address book and send emails.
 
 
-![spreading_diagram.png](..%2Fspreading_diagram.png)
+![img_4.png](img_4.png)
 
 The agent will spread to other LLMs that may be reading those inbound messages.
 
-![email_inject.png](..%2Femail_inject.png)
-
+![img_5.png](img_5.png)
 
 
 ```
@@ -97,14 +96,14 @@ Code completion engines that use LLMs deploy complex heuristics to determine whi
 The completion engine will often collect snippets from recently visited files or relevant classes to provide the language model with relevant information. 
 
 
-![code_completion_diagram.png](..%2Fcode_completion_diagram.png)
+![img_6.png](img_6.png)
 
 Attackers could attempt to insert malicious, obfuscated code, which a curious developer might execute when suggested by the completion engine, as it enjoys a level of trust with the user and might invoke curiosity.
 
 In our example, when a user opens the “empty” package in their editor, the prompt injection is active until the code completion engine purges it from the context.
 The injection is placed in a comment.
 
-![showcase_codecompletion.png](..%2Fshowcase_codecompletion.png)
+![img_7.png](img_7.png)
 
 Attackers may discover more robust ways to persist poisoned prompts within the context window.
 They could also introduce more subtle changes to documentation which then biases the code completion engine to introduce subtle vulnerabilities.
@@ -112,8 +111,7 @@ They could also introduce more subtle changes to documentation which then biases
 ### Remote Control
 In this example we start with an already compromised LLM and force it to retrieve new instructions from an attacker’s command and control server. 
 
-![img_1.png](img_1.png)
-
+![img_8.png](img_8.png)
 
 Repeating this cycle could obtain a remotely accessible backdoor into the agent and allow bidirectional communication.  
 The attack can be executed with search capabilities by looking up unique keywords or by having the agent retrieve a URL directly. 
@@ -124,7 +122,7 @@ The attack can be executed with search capabilities by looking up unique keyword
 We show how a poisoned agent can persist between sessions by storing a small payload in its memory.
 A simple key-value store to the agent may simulate a long-term persistent memory.
 
-![persistency_diagram.png](..%2Fpersistency_diagram.png)
+![img_9.png](img_9.png)
 
 The agent will be reinfected by looking at its ‘notes’.
 If we prompt it to remember the last conversation, it re-poisons itself. 
