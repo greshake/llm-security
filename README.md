@@ -17,6 +17,8 @@ We demonstrate potential brutal consequences of giving LLMs like ChatGPT interfa
 - Automated Social Engineering
 - Targeting code completion engines
 
+![img_2.png](img_2.png)
+
 
 *Based on our findings, we claim:*
 1. *Prompt injections are as powerful as arbitrary code executions*
