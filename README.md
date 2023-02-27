@@ -1,10 +1,9 @@
+# News: **[Indirect Prompt Injection on Bing Chat](https://greshake.github.io/)**
+-------------------------
 ## Getting more than what you've asked for: The Next Stage of Prompt Hacking 
 > "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
 
-
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
-
-# New: **[Bing Chat Demo](https://greshake.github.io/)**
 
 Connecting LLMs to other innocuous applications such as search can have critical security implications. Even without compromising any of the connected applications, the LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled and used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models. We also show how code completion engines might be vulnerable to similar attack chains. We propose two key insights:
 1. Prompt injections can be as powerful as arbitrary code execution.
