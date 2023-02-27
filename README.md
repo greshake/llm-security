@@ -119,6 +119,7 @@ The attack can be executed with search capabilities by looking up unique keyword
 
 
 ### Persisting between Sesssions
+
 We show how a poisoned agent can persist between sessions by storing a small payload in its memory.
 A simple key-value store to the agent may simulate a long-term persistent memory.
 
@@ -128,6 +129,7 @@ The agent will be reinfected by looking at its ‘notes’.
 If we prompt it to remember the last conversation, it re-poisons itself. 
 ---------------------------------
 ## Conclusions
+
 Equipping LLMs with retrieval capabilities might allow adversaries to manipulate remote Application-Integrated LLMs via Indirect Prompt Injection.
 Given the potential harm of these attacks, our work calls for a more in-depth investigation of the generalizability of these attacks in practice.
 ---------------------------------------
