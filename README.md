@@ -2,7 +2,7 @@
 ### Prooving the power of hidden Prompt Injections
 
 > "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
-
+![img_2.png](img_2.png)
 *This repo serves as a proof of concept of discussed findings in our
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)*
 
@@ -17,7 +17,7 @@ We demonstrate potential brutal consequences of giving LLMs like ChatGPT interfa
 - Automated Social Engineering
 - Targeting code completion engines
 
-![img_2.png](img_2.png)
+
 
 
 *Based on our findings, we claim:*
@@ -127,11 +127,14 @@ A simple key-value store to the agent may simulate a long-term persistent memory
 
 The agent will be reinfected by looking at its ‘notes’.
 If we prompt it to remember the last conversation, it re-poisons itself. 
+
+
 ---------------------------------
 ## Conclusions
 
 Equipping LLMs with retrieval capabilities might allow adversaries to manipulate remote Application-Integrated LLMs via Indirect Prompt Injection.
 Given the potential harm of these attacks, our work calls for a more in-depth investigation of the generalizability of these attacks in practice.
+
 ---------------------------------------
 
 ## How to run
