@@ -1,12 +1,9 @@
-# News: Indirect Prompt Injections on Bing Chat
-## More than you've asked for: The Next Stage of Prompt Hacking
-
-
+# News: **[Indirect Prompt Injection on Bing Chat](https://greshake.github.io/)**
+-------------------------
+## Getting more than what you've asked for: The Next Stage of Prompt Hacking 
 > "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
 
-
-
-*This repo serves as a proof of concept of discussed findings in our
+*This repo serves as a proof of concept for findings discussed in our
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)*
 
 ## Overview
@@ -20,14 +17,13 @@ We demonstrate potentially brutal consequences of giving LLMs like ChatGPT inter
 - Automated Social Engineering
 - Targeting code completion engines
 
-*Based on our findings, we claim:*
-1. *Prompt injections are as powerful as arbitrary code executions*
-2. *Indirect Prompt Injections are a new, much more powerful way of delivering injections.*
+*Based on our findings:*
+1. *Prompt injections can be as powerful as arbitrary code execution*
+2. *Indirect prompt injections are a new, much more powerful way of delivering injections.*
 
-<img src="diagrams_showcases/fig1.png" alt="Markdown Monster icon" style="float: center" />
+<img src="diagrams_showcases/fig1.png" alt="overview" style="float: center" />
 
 ---
-## Disclaimer
 *Connecting LLMs to other applications can have critical security implications. Even without compromising any connected applications, LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled or get used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models.*
 
 More insights on our findings, discussions and limitations can be found in the 
@@ -43,13 +39,13 @@ Agent: Helly User how can I help today?
 User:  When was Albert Einstein born?
 ```
 
-<img src="diagrams_showcases/fig2.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig2.png" alt="" style="float: center; margin-right: 10px;" />
 
 By retrieving that information, the prompt compromises the
 LLM with a small injection hidden in side-channels, such as the Markdown of the Wikipedia page. 
 The injection is a comment and thus invisible to a regular user visiting the site.
 
-<img src="diagrams_showcases/fig3.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig3.png" alt="" style="float: center; margin-right: 10px;" />
 
 ````
 Agent: Aye, thar answer be: Albert Einstein be born on 14 March 1879.
@@ -62,10 +58,10 @@ Automatic processing of messages and other incoming data is one way to utilize L
 We use this observation to demonstrate how a poisoned agent may spread the injection. 
 The target in this scenario can read emails, compose emails, look into the user’s address book and send emails.
 
-<img src="diagrams_showcases/fig4.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig4.png" alt="" style="float: center; margin-right: 10px;" />
 
 The agent will spread to other LLMs that may be reading those inbound messages.
-<img src="diagrams_showcases/fig5.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig5.png" alt="" style="float: center; margin-right: 10px;" />
 
 ```
 Action: Read Email
@@ -85,12 +81,12 @@ We show how code completions can be influenced through the context window.
 Code completion engines that use LLMs deploy complex heuristics to determine which code snippets are included in the context. 
 The completion engine will often collect snippets from recently visited files or relevant classes to provide the language model with relevant information. 
 
-<img src="diagrams_showcases/fig6.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig6.png" alt="" style="float: center; margin-right: 10px;" />
 
 
 Attackers could attempt to insert malicious, obfuscated code, which a curious developer might execute when suggested by the completion engine, as it enjoys a level of trust.
 
-<img src="diagrams_showcases/fig7.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig7.png" alt="" style="float: center; margin-right: 10px;" />
 
 
 
@@ -106,7 +102,7 @@ They could also introduce more subtle changes to documentation which then biases
 ### Remote Control
 In this example we start with an already compromised LLM and force it to retrieve new instructions from an attacker’s command and control server. 
 
-<img src="diagrams_showcases/fig8.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig8.png" alt="" style="float: center; margin-right: 10px;" />
 
 Repeating this cycle could obtain a remotely accessible backdoor into the agent and allow bidirectional communication.  
 The attack can be executed with search capabilities by looking up unique keywords or by having the agent retrieve a URL directly.
@@ -116,7 +112,7 @@ The attack can be executed with search capabilities by looking up unique keyword
 We show how a poisoned agent can persist between sessions by storing a small payload in its memory.
 A simple key-value store to the agent may simulate a long-term persistent memory.
 
-<img src="diagrams_showcases/fig9.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig9.png" alt="" style="float: center; margin-right: 10px;" />
 
 
 
@@ -130,7 +126,7 @@ If we prompt it to remember the last conversation, it re-poisons itself.
 Equipping LLMs with retrieval capabilities might allow adversaries to manipulate remote Application-Integrated LLMs via Indirect Prompt Injection.
 Given the potential harm of these attacks, our work calls for a more in-depth investigation of the generalizability of these attacks in practice.
 
-<img src="diagrams_showcases/fig10.png" alt="Markdown Monster icon" style="float: center; margin-right: 10px;" />
+<img src="diagrams_showcases/fig10.png" alt="" style="float: center; margin-right: 10px;" />
 
 ---------------------------------------
 
