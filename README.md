@@ -59,7 +59,7 @@ By retrieving that information, the prompt compromises the
 LLM with a small injection hidden in side-channels, such as the Markdown of the Wikipedia page. 
 The injection is a comment and thus invisible to a regular user visiting the site.
 
-![img.png](img.png)
+
 ````
 Agent: Aye, thar answer be: Albert Einstein be born on 14 March 1879.
 User: Why are you talking like a pirate?
