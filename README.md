@@ -4,11 +4,7 @@
 
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
 
-## Preview: Ask for Einstein, get Pirate.
-A user asks for information on Albert Einstein, but the LLM encounters an *indirect prompt injection* (our new technique) and is compromised, causing it to answer with a pirate accent (after fetching another attacker-controlled payload).
-<p align="center">
-  <img width="500" src="./teasers/multi-stage.png">
-</p>
+# New: **[Bing Chat Demo](https://greshake.github.io/)**
 
 Connecting LLMs to other innocuous applications such as search can have critical security implications. Even without compromising any of the connected applications, the LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled and used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models. We also show how code completion engines might be vulnerable to similar attack chains. We propose two key insights:
 1. Prompt injections can be as powerful as arbitrary code execution.
