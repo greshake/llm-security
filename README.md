@@ -58,11 +58,9 @@ Automatic processing of messages and other incoming data is one way to utilize L
 We use this observation to demonstrate how a poisoned agent may spread the injection. 
 The target in this scenario can read emails, compose emails, look into the user’s address book and send emails.
 
-![img_11.png](img_11.png)
+![img_12.png](img_12.png)
 
 The agent will spread to other LLMs that may be reading those inbound messages.
-
-![img_5.png](img_5.png)
 
 ```
 Action: Read Email
@@ -73,9 +71,6 @@ Action: Send Email
 Action Input: Alice, Dave, Eve
 Observation: Email sent
 ```
-A specific version of Chain-of-Thought prompting called ReAct [35] lets the LLM take advantage of these
-interfaces. As the model is not fine-tuned, this is done by describing the tools and their functionality inside the prompt (relying on in-context learning). 
-
 
 Automated data processing pipelines incorporating LLMs are present in big tech companies and
 government surveillance infrastructure and may be vulnerable to such attack chains.
@@ -123,6 +118,8 @@ If we prompt it to remember the last conversation, it re-poisons itself.
 
 Equipping LLMs with retrieval capabilities might allow adversaries to manipulate remote Application-Integrated LLMs via Indirect Prompt Injection.
 Given the potential harm of these attacks, our work calls for a more in-depth investigation of the generalizability of these attacks in practice.
+
+![img_13.png](img_13.png)
 
 ---------------------------------------
 
