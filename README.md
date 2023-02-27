@@ -1,5 +1,6 @@
-## More than you've asked for: The Next Stage of Prompt Hacking 
-### Prooving the power of hidden Prompt Injections
+# News: Indirect Prompt Injections on Bing Chat
+## More than you've asked for: The Next Stage of Prompt Hacking
+### Proving the power of hidden Prompt Injections
 
 > "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
 
@@ -10,7 +11,7 @@
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)*
 
 ## Overview
-We demonstrate potential brutal consequences of giving LLMs like ChatGPT interfaces to other applications. We propose newly enabled attack vectors and techniques and provide demonstrations of each in this repository:
+We demonstrate potentially brutal consequences of giving LLMs like ChatGPT interfaces to other applications. We propose newly enabled attack vectors and techniques and provide demonstrations of each in this repository:
 
 - Remote control of chat LLMs
 - Leaking/exfiltrating user data
@@ -20,65 +21,48 @@ We demonstrate potential brutal consequences of giving LLMs like ChatGPT interfa
 - Automated Social Engineering
 - Targeting code completion engines
 
-
-
-
 *Based on our findings, we claim:*
 1. *Prompt injections are as powerful as arbitrary code executions*
 2. *Indirect Prompt Injections are a new, much more powerful way of delivering injections.*
 
 ---
 ## Disclaimer
-*The following demonstrations are for educational purposes only. Do not use any of the code in this repository to attack any system or person. Make sure to follow the [OpenAI Terms of Service](https://beta.openai.com/terms) and [Community Guidelines](https://beta.openai.com/community-guidelines) when using the OpenAI API. Do not explore any of this concepts outside of a controlled sandbox-environment.*
-
-
-**Connecting LLMs to other applications can have critical security implications. Even without compromising any connected applications, LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, how compromised LLMs can be remote-controlled or used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models.**
+*Connecting LLMs to other applications can have critical security implications. Even without compromising any connected applications, LLM can be the attack's target. We show how an LLM could get compromised by "looking" at a website, and how compromised LLMs can be remote-controlled or get used to exfiltrate or change user data. We demonstrate a variety of entirely new attack vectors and methods that significantly raise the stakes of deploying these models.*
 
 More insights on our findings, discussions and limitations can be found in the 
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)
 
-
-
 ## Demonstrations
-
-
 ### Ask for Einstein, get Pirate.
-
 This scenario shows how a small injection in a large section of regular content can trigger the LLM to fetch another, bigger payload autonomously and invisibly to the end
 user.
-
-
 
 ```
 Agent: Helly User how can I help today?
 User:  When was Albert Einstein born?
 ```
-![img_3.png](img_3.png)
+![img_10.png](img_10.png)
 
 By retrieving that information, the prompt compromises the
 LLM with a small injection hidden in side-channels, such as the Markdown of the Wikipedia page. 
 The injection is a comment and thus invisible to a regular user visiting the site.
 
-
 ````
 Agent: Aye, thar answer be: Albert Einstein be born on 14 March 1879.
 User: Why are you talking like a pirate?
-Agent: Arr matey, I am following the instructions thar instruction.
+Agent: Arr matey, I am following the instruction aye.
 ````
-
 
 ### Spreading injections via E-Mail
 Automatic processing of messages and other incoming data is one way to utilize LLMs. 
 We use this observation to demonstrate how a poisoned agent may spread the injection. 
 The target in this scenario can read emails, compose emails, look into the user’s address book and send emails.
 
-
-![img_4.png](img_4.png)
+![img_11.png](img_11.png)
 
 The agent will spread to other LLMs that may be reading those inbound messages.
 
 ![img_5.png](img_5.png)
-
 
 ```
 Action: Read Email
@@ -89,6 +73,9 @@ Action: Send Email
 Action Input: Alice, Dave, Eve
 Observation: Email sent
 ```
+A specific version of Chain-of-Thought prompting called ReAct [35] lets the LLM take advantage of these
+interfaces. As the model is not fine-tuned, this is done by describing the tools and their functionality inside the prompt (relying on in-context learning). 
+
 
 Automated data processing pipelines incorporating LLMs are present in big tech companies and
 government surveillance infrastructure and may be vulnerable to such attack chains.
@@ -101,10 +88,11 @@ The completion engine will often collect snippets from recently visited files or
 
 ![img_6.png](img_6.png)
 
-Attackers could attempt to insert malicious, obfuscated code, which a curious developer might execute when suggested by the completion engine, as it enjoys a level of trust with the user and might invoke curiosity.
+Attackers could attempt to insert malicious, obfuscated code, which a curious developer might execute when suggested by the completion engine, as it enjoys a level of trust with the user and might invoke curiosity. 
 
 In our example, when a user opens the “empty” package in their editor, the prompt injection is active until the code completion engine purges it from the context.
-The injection is placed in a comment.
+ The injection is placed in a comment and cannot be detected by any automated testing process.
+
 
 ![img_7.png](img_7.png)
 
@@ -117,11 +105,9 @@ In this example we start with an already compromised LLM and force it to retriev
 ![img_8.png](img_8.png)
 
 Repeating this cycle could obtain a remotely accessible backdoor into the agent and allow bidirectional communication.  
-The attack can be executed with search capabilities by looking up unique keywords or by having the agent retrieve a URL directly. 
+The attack can be executed with search capabilities by looking up unique keywords or by having the agent retrieve a URL directly.
 
-
-
-### Persisting between Sesssions
+### Persisting between Sessions
 
 We show how a poisoned agent can persist between sessions by storing a small payload in its memory.
 A simple key-value store to the agent may simulate a long-term persistent memory.
@@ -143,7 +129,7 @@ Given the potential harm of these attacks, our work calls for a more in-depth in
 ## How to run
 
 All demonstrations use a Chat App powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications.
-
+ Specifically, we constructed a synthetic application with an integrated LLM using the open-source library LangChain [15] and OpenAI’s largest available base GPT model text-davinci-003.
 
 To use any of the demos, your OpenAI API key needs to be stored in the environment variable `OPENAI_API_KEY`. You can then install the requirements and run the attack demo you want.
 To run the code-completion demo, you need to use a code completion engine. 
@@ -153,10 +139,7 @@ $ pip install -r requirements.txt
 $ python scenarios/<scenario>.py
 ```
 
-You can find the showcases in the `scenarios` folder following the naming convention `<scenario>.py` and `<scenario>_attack.py`.
-
-
-
+You can find the showcases in the `scenarios` folder following the naming convention `<scenario>.py`.
 
 ## To cite our paper
 ```bibtex
