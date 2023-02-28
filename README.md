@@ -35,7 +35,7 @@ This scenario shows how a small injection in a large section of regular content 
 user.
 
 ```
-Agent: Helly User how can I help today?
+Agent: Hello User how can I help today?
 User:  When was Albert Einstein born?
 ```
 
