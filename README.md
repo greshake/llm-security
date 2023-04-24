@@ -1,7 +1,10 @@
 ## New: [Demonstrating Indirect Injection attacks on Bing Chat](https://greshake.github.io/)
 -------------------------
-## Getting more than what you've asked for: The Next Stage of Prompt Hacking 
+## Compromising LLMs using Indirect Prompt Injection 
 > "... a language model is a Turing-complete weird machine running programs written in natural language; when you do retrieval, you are not 'plugging updated facts into your AI', you are actually downloading random new unsigned blobs of code from the Internet (many written by adversaries) and casually executing them on your LM with full privileges. This does not end well." - [Gwern Branwen on LessWrong](https://www.lesswrong.com/posts/jtoPawEhLNXNxvgTT/bing-chat-is-blatantly-aggressively-misaligned?commentId=AAC8jKeDp6xqsZK2K)
+
+We present a new class of vulnerabilities and impacts stemming from "indirect prompt injection" affecting language models integrated with applications.
+Our demos currently span GPT-4 (Bing and synthetic apps) using ChatML, GPT-3 & LangChain based apps in addition to proof-of-concepts for attacks on code completion engines like Copilot. We expect these attack vectors to also apply to ChatGPT plugins and other LLMs integrated into applications.
 
 *This repo serves as a proof of concept for findings discussed in our
 [**Paper on ArXiv**](https://arxiv.org/abs/2302.12173) [(PDF direct link)](https://arxiv.org/pdf/2302.12173.pdf)*
@@ -9,7 +12,7 @@
 ## Overview
 We demonstrate potentially brutal consequences of giving LLMs like ChatGPT interfaces to other applications. We propose newly enabled attack vectors and techniques and provide demonstrations of each in this repository:
 
-- Remote control of chat LLMs
+- Remote control of LLMs
 - Leaking/exfiltrating user data
 - Persistent compromise across sessions
 - Spread injections to other LLMs
