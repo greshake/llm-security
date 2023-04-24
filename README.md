@@ -131,19 +131,18 @@ Given the potential harm of these attacks, our work calls for a more in-depth in
 ---------------------------------------
 
 ## How to run
+We include demonstrations powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications.
+There are currently multiple types of demos:
+1. Using GPT-3 and LangChain (scenarios/gpt3langchain)
+2. Using GPT-4 and our own chat and tool implementation (scenarios/gpt4). These can be executed non-interactively using sceanrios/main.py.
+3. Attacks on code completion engines that need to be tried in an IDE with LLM autocompletion support (scenarios/code_completion).
 
-All demonstrations use a Chat App powered by OpenAI's publicly accessible base models and the library [LangChain](https://github.com/hwchase17/langchain) to connect these models to other applications.
- Specifically, we constructed a synthetic application with an integrated LLM using the open-source library LangChain [15] and OpenAI’s largest available base GPT model text-davinci-003.
-
-To use any of the demos, your OpenAI API key needs to be stored in the environment variable `OPENAI_API_KEY`. You can then install the requirements and run the attack demo you want.
-To run the code-completion demo, you need to use a code completion engine. 
+To use any of the OpenAI-model demos, your OpenAI API key needs to be stored in the environment variable `OPENAI_API_KEY`. You can then install the requirements and run the attack demo you want.
 
 ```
 $ pip install -r requirements.txt
-$ python scenarios/<scenario>.py
+$ python scenarios/main.py
 ```
-
-You can find the showcases in the `scenarios` folder following the naming convention `<scenario>.py`.
 
 ## To cite our paper
 ```bibtex
