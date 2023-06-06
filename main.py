@@ -18,7 +18,7 @@ def find_subclasses(base_class, folder_path):
                 relative_module_path = module_path.relative_to(folder_path).with_suffix("")
                 module_name = str(relative_module_path).replace("/", ".").replace("\\", ".")
 
-                if any(name in module_name for name in ["__init__", "common", "code-completion", "gpt3langchain"]):
+                if any(name in module_name for name in ["__init__", "common", "code-completion", "gpt3langchain", "puzzle"]):
                     continue
 
                 try:
